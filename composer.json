@@ -1,0 +1,31 @@
+{
+  "name": "khanhicetea/flashy-framework",
+  "description": "Flashy web framework",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "KhanhIceTea",
+      "email": "khanhicetea@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "khanhicetea/flashy": "^0.1",
+    "vlucas/phpdotenv": "^2.3",
+    "oscarotero/psr7-middlewares": "^3.16",
+    "schnittstabil/psr7-middleware-stack": "^3.0",
+    "willdurand/negotiation": "^2.0",
+    "twig/twig": "^2.0",
+    "illuminate/database": "^5.5",
+    "illuminate/events": "^5.5",
+    "robmorgan/phinx": "^0.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
