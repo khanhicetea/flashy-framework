@@ -19,8 +19,8 @@
     "schnittstabil/psr7-middleware-stack": "^3.0",
     "willdurand/negotiation": "^2.0",
     "twig/twig": "^2.0",
-    "illuminate/database": "^5.5",
-    "illuminate/events": "^5.5",
+    "illuminate/database": "^5.4",
+    "illuminate/events": "^5.4",
     "robmorgan/phinx": "^0.8"
   },
   "autoload": {
