@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+use App\Command\Hello;
+use Flashy\Runnable\CliApplication;
+use Flashy\ServiceProvider\ConsoleService;
+use Psr\Container\ContainerInterface;
+use Silly\Edition\PhpDi\Application;
+
+$app = require __DIR__.'/bootstrap/load.php';
+
+$register_func = function(ContainerInterface $container) {
+    return function(Application $console) {
+        $console->command('greet [name]', Hello::class);
+    };
+};
+
+$app->register(new ConsoleService(), [
+    'console.name' => 'Flashy Console',
+    'console.version' => '1.0.0',
+    'console.register_func' => $register_func,
+]);
+
+$app->run(CliApplication::class);

@@ -1,19 +1,11 @@
 <?php
 namespace App\Http;
 
-use League\Route\RouteCollection;
-use FastRoute\DataGenerator;
-use FastRoute\RouteParser;
-use Psr\Container\ContainerInterface;
+use Flashy\Http\Route\Router;
 
-class Routing extends RouteCollection
+class Routing extends Router
 {
-    public function __construct(ContainerInterface $container, RouteParser $parser = null, DataGenerator $generator = null)
-    {
-        parent::__construct($container, $parser, $generator);
-    }
-
-    protected function to(string $controller, string $action) : array
+    private function to(string $controller, string $action) : array
     {
         return ['\\App\\Http\\Controller\\'.ucfirst($controller).'Controller', $action.'Action'];
     }
@@ -24,9 +16,10 @@ class Routing extends RouteCollection
         $r = $this;
 
         // Routes defining
-        $r->get('/[{name}]', $r->to('home', 'index'));
+        $r->get('/[{name}]', $r->to('home', 'index'))->setName('index');
 
         // Return this
         return $this;
     }
+
 }

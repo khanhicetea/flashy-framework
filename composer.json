@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.1",
     "khanhicetea/flashy": "^0.1",
     "vlucas/phpdotenv": "^2.3",
     "oscarotero/psr7-middlewares": "^3.16",
@@ -21,6 +21,8 @@
     "twig/twig": "^2.0",
     "illuminate/database": "^5.4",
     "illuminate/events": "^5.4",
+    "mnapoli/silly-php-di": "^1.0",
+    "react/http": "^0.7",
     "robmorgan/phinx": "^0.8"
   },
   "autoload": {

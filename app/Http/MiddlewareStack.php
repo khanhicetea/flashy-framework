@@ -1,10 +1,10 @@
 <?php
 namespace App\Http;
 
-use Flashy\Http\AbstractMiddlewareStack;
+use Flashy\Http\MiddlewareStack as FlashyMiddlewareStack;
 use Psr7Middlewares\Middleware;
 
-class MiddlewareStack extends AbstractMiddlewareStack
+class MiddlewareStack extends FlashyMiddlewareStack
 {
     public function loadMiddlewares() : void
     {
