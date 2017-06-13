@@ -2,6 +2,7 @@
 use Flashy\App;
 use Flashy\ServiceProvider\LogService;
 use Flashy\ServiceProvider\TwigService;
+use Flashy\ServiceProvider\PredisService;
 use Flashy\ServiceProvider\EloquentService;
 
 $app = new App();
@@ -24,5 +25,6 @@ $app->register(new EloquentService(), [
         'prefix' => null,
     ],
 ]);
+$app->register(new PredisService());
 
 return $app;

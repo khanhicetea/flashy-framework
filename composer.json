@@ -23,6 +23,7 @@
     "illuminate/events": "^5.4",
     "mnapoli/silly-php-di": "^1.0",
     "react/http": "^0.7",
+    "predis/predis": "^1.1",
     "robmorgan/phinx": "^0.8"
   },
   "autoload": {
