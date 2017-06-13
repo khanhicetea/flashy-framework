@@ -21,5 +21,4 @@ class Routing extends Router
         // Return this
         return $this;
     }
-
 }
