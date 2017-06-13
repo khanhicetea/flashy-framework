@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+use function DI\object;
+use App\Command\ReactServer;
+use Flashy\Runnable\CliApplication;
+use Flashy\ServiceProvider\ConsoleService;
+use Flashy\ServiceProvider\ReactHttpService;
+use Psr\Container\ContainerInterface;
+use Silly\Edition\PhpDi\Application;
+use Flashy\Http\MiddlewareStackInterface;
+use Flashy\Http\Route\Router;
+use App\Http\Routing;
+use App\Http\MiddlewareStack;
+
+$app = require __DIR__.'/bootstrap/load.php';
+
+$register_func = function(ContainerInterface $container) {
+    return function(Application $console) {
+        $console->command('server [port]', ReactServer::class);
+    };
+};
+
+$app->register(new ConsoleService(), [
+    'console.name' => 'Flashy React Console',
+    'console.version' => '1.0.0',
+    'console.register_func' => $register_func,
+]);
+
+$app->register(new ReactHttpService(), [
+    Router::class => object(Routing::class)->method('loadRoutes'),
+    MiddlewareStackInterface::class => object(MiddlewareStack::class)->method('loadMiddlewares'),
+]);
+
+$app->run(CliApplication::class);
