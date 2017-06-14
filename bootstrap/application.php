@@ -8,7 +8,7 @@ use Flashy\ServiceProvider\EloquentService;
 $app = new App();
 $app->register(new LogService(), [
     'logger.name' => 'TestFlashy',
-    'logger.stream' => storage_path('logs/debug.log'),
+    'logger.stream' => storage_path('logs/flashy.log'),
 ]);
 $app->register(new TwigService(), [
     'twig.path' => resources_path('views'),
