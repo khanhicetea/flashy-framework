@@ -9,7 +9,7 @@ class MiddlewareStack extends FlashyMiddlewareStack
 {
     public function loadMiddlewares() : void
     {
-        $container = $this->container;
+        $container = $this->getContainer();
 
         $this
             ->addMiddleware(Middleware::responseTime())
