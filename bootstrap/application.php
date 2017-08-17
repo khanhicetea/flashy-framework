@@ -22,7 +22,7 @@ $app->register(new EloquentService(), [
         'password' => env('DB_PASSWORD', ''),
         'charset' => env('DB_CHARSET', 'utf8'),
         'collation' => env('DB_COLLATION', 'utf8_unicode_ci'),
-        'prefix' => null,
+        'prefix' => env('DB_PREFIX', null),
     ],
 ]);
 $app->register(new PredisService());
