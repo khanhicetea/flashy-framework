@@ -151,6 +151,7 @@ $RECYCLE.BIN/
 .env
 /composer.lock
 /composer.json.dev
+/composer.json.dev.lock
 /storage/logs/**
 !/storage/logs/.gitkeep
 /storage/framework/**
