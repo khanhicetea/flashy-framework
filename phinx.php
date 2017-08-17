@@ -2,8 +2,13 @@
 
 $app = require dirname(__FILE__).'/bootstrap/load.php';
 
-$dsn = sprintf('%s:dbname=%s;host=%s;charset=%s', env('DB_DRIVER'), env('DB_NAME'),
-    env('DB_HOST'), env('DB_CHARSET', 'utf8'));
+$dsn = sprintf(
+    '%s:dbname=%s;host=%s;charset=%s',
+    env('DB_DRIVER'),
+    env('DB_NAME'),
+    env('DB_HOST'),
+    env('DB_CHARSET', 'utf8')
+);
 $pdo = new PDO($dsn, env('DB_USER'), env('DB_PASSWORD'));
 
 return [
