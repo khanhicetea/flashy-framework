@@ -5,8 +5,8 @@ use Flashy\Http\Controller;
 
 class HomeController extends Controller
 {
-    protected function indexAction($params)
+    protected function indexAction($name = 'world')
     {
-        return $this->json(['hello' => 'world']);
+        return $this->json(['hello' => $name]);
     }
 }

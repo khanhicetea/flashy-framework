@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=7.1",
-    "khanhicetea/flashy": "^0.1",
+    "khanhicetea/flashy": "^1.0",
     "vlucas/phpdotenv": "^2.3",
     "oscarotero/psr7-middlewares": "^3.16",
     "schnittstabil/psr7-middleware-stack": "^3.0",
@@ -25,6 +25,9 @@
     "react/http": "^0.7",
     "predis/predis": "^1.1",
     "robmorgan/phinx": "^0.8"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^3.3"
   },
   "autoload": {
     "psr-4": {

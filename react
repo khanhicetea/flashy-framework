@@ -7,7 +7,7 @@ use Flashy\ServiceProvider\ConsoleService;
 use Flashy\ServiceProvider\ReactHttpService;
 use Psr\Container\ContainerInterface;
 use Silly\Edition\PhpDi\Application;
-use Flashy\Http\MiddlewareStackInterface;
+use Flashy\Http\Middleware\RoutingMiddlewareStack;
 use Flashy\Http\Route\Router;
 use App\Http\Routing;
 use App\Http\MiddlewareStack;
@@ -28,7 +28,7 @@ $app->register(new ConsoleService(), [
 
 $app->register(new ReactHttpService(), [
     Router::class => object(Routing::class)->method('loadRoutes'),
-    MiddlewareStackInterface::class => object(MiddlewareStack::class)->method('loadMiddlewares'),
+    RoutingMiddlewareStack::class => object(MiddlewareStack::class)->method('loadMiddlewares'),
 ]);
 
 $app->run(CliApplication::class);

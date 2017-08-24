@@ -1,20 +1,18 @@
 <?php
 namespace App\Http;
 
-use Flashy\Http\MiddlewareStack as FlashyMiddlewareStack;
+use Flashy\Http\Middleware\RoutingMiddlewareStack;
 use Psr7Middlewares\Middleware;
 use Psr7Middlewares\Middleware\AccessLog;
 
-class MiddlewareStack extends FlashyMiddlewareStack
+class MiddlewareStack extends RoutingMiddlewareStack
 {
     public function loadMiddlewares() : void
     {
-        $container = $this->getContainer();
-
         $this
-            ->addMiddleware(Middleware::responseTime())
-            ->addMiddleware(Middleware::trailingSlash())
-            ->addMiddleware($container->get(AccessLog::class))
-            ->addMiddleware(Middleware::clientIp());
+            ->pushMiddleware(Middleware::responseTime())
+            ->pushMiddleware(Middleware::trailingSlash())
+            ->pushMiddleware(Middleware::clientIp())
+            ->pushMiddleware(AccessLog::class);
     }
 }

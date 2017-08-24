@@ -5,9 +5,9 @@ use Flashy\ServiceProvider\TwigService;
 use Flashy\ServiceProvider\PredisService;
 use Flashy\ServiceProvider\EloquentService;
 
-$app = new App();
+$app = new App(env('DEBUG', false));
 $app->register(new LogService(), [
-    'logger.name' => 'TestFlashy',
+    'logger.name' => 'Flashy',
     'logger.stream' => storage_path('logs/flashy.log'),
 ]);
 $app->register(new TwigService(), [

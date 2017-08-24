@@ -7,13 +7,13 @@ use Psr\Container\ContainerInterface;
 abstract class Base
 {
     protected $container;
-    protected $capsule;
+    protected $db;
     protected $model;
 
-    public function __construct(ContainerInterface $container, Manager $capsule)
+    public function __construct(ContainerInterface $container, Manager $db)
     {
         $this->container = $container;
-        $this->capsule = $capsule;
+        $this->db = $db;
     }
 
     public function __get(string $key)
@@ -27,6 +27,6 @@ abstract class Base
             return call_user_func_array([$this->model, $method], $params);
         }
 
-        return call_user_func_array([$this->capsule->getDatabaseManager()->connection(), $method], $params);
+        return call_user_func_array([$this->db->getDatabaseManager()->connection(), $method], $params);
     }
 }
