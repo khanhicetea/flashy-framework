@@ -4,6 +4,7 @@ use function DI\get;
 use Flashy\Http\Middleware\RoutingMiddlewareStack;
 use Flashy\Http\Route\Router;
 use Flashy\ServiceProvider\HttpService;
+use Flashy\Runnable\HttpTestApplication;
 use App\Http\Routing;
 use App\Http\MiddlewareStack;
 use PHPUnit\Framework\TestCase;
@@ -19,25 +20,6 @@ $autoloader = (require_once dirname(__DIR__).'/vendor/autoload.php');
 $dotenv = new Dotenv\Dotenv(dirname(__DIR__), '.env.testing');
 $dotenv->load();
 
-final class HttpTestApplication
-{
-    private $container;
-
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
-
-    public function run(ServerRequestInterface $request): ResponseInterface
-    {
-        $response = $this->container->call([Kernel::class, 'run'], [
-            $request,
-            get('http.response')
-        ]);
-
-        return $response;
-    }
-}
 
 abstract class HttpTestCase extends TestCase
 {
