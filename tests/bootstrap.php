@@ -3,7 +3,6 @@ use function DI\object;
 use function DI\get;
 use Flashy\Http\Middleware\RoutingMiddlewareStack;
 use Flashy\Http\Route\Router;
-use Flashy\Runnable\HttpApplication;
 use Flashy\ServiceProvider\HttpService;
 use App\Http\Routing;
 use App\Http\MiddlewareStack;
