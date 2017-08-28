@@ -149,6 +149,7 @@ $RECYCLE.BIN/
 # Flashy framework
 .php_cs.cache
 .env
+.env.testing
 /composer.lock
 /composer.json.dev
 /composer.json.dev.lock
