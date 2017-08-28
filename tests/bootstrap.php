@@ -1,6 +1,5 @@
 <?php
 use function DI\object;
-use function DI\get;
 use Flashy\Http\Middleware\RoutingMiddlewareStack;
 use Flashy\Http\Route\Router;
 use Flashy\ServiceProvider\HttpService;
@@ -8,11 +7,7 @@ use Flashy\Runnable\HttpTestApplication;
 use App\Http\Routing;
 use App\Http\MiddlewareStack;
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response;
-use Flashy\Http\Kernel;
-use Psr\Container\ContainerInterface;
 
 require_once dirname(__DIR__).'/bootstrap/helpers.php';
 
